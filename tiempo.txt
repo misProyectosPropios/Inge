@@ -1,0 +1,244 @@
+from regex import Char, Concat, Union, Star
+
+# a|bc
+__regex__ = Concat(
+                Char('a'), 
+                Concat(
+                    Char('b'),
+                    Concat(
+                        Char('c'), 
+                        Concat(
+                            Char('d'),
+                            Char('e')
+                        ))))
+
+__should_match__ = r"abcde"
+
+__min_afd_size__ = 0
+
+Determinizado
+
+abcde
+real    0m0.069s
+user    0m0.024s
+sys     0m0.045s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.084s
+user    0m0.050s
+sys     0m0.027s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.088s
+user    0m0.066s
+sys     0m0.018s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.081s
+user    0m0.051s
+sys     0m0.029s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.090s
+user    0m0.066s
+sys     0m0.025s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.107s
+user    0m0.069s
+sys     0m0.033s
+
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.084s
+user    0m0.062s
+sys     0m0.023s
+
+# Naive 
+
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n t
+ests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings
+/str1.txt"
+abcde
+real    0m0.083s
+user    0m0.060s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.084s
+user    0m0.061s
+sys     0m0.024s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.084s
+user    0m0.055s
+sys     0m0.026s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.093s
+user    0m0.069s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.091s
+user    0m0.058s
+sys     0m0.023s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.098s
+user    0m0.073s
+sys     0m0.021s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.093s
+user    0m0.065s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.094s
+user    0m0.034s
+sys     0m0.034s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.089s
+user    0m0.065s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.103s
+user    0m0.070s
+sys     0m0.023s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.083s
+user    0m0.062s
+sys     0m0.018s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.075s
+user    0m0.047s
+sys     0m0.028s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.085s
+user    0m0.043s
+sys     0m0.032s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.091s
+user    0m0.063s
+sys     0m0.026s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str1.txt"
+abcde
+real    0m0.074s
+user    0m0.050s
+sys     0m0.020s
+
+
+from regex import Char, Concat, Union, Star
+
+# a|bc
+__regex__ = Concat(Star(Union(Char('a'), Concat(Char('a'), Char('a')))), Char('b'))
+
+__should_match__ = r"(a|aa)*b"
+
+__min_afd_size__ = 3
+
+
+Caso con union mas compleja que dependiendo de la cadena va a tardar mas o menos el naiv y el determinizado el mismp
+
+Naive
+
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.065s
+user    0m0.041s
+sys     0m0.024s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.083s
+user    0m0.055s
+sys     0m0.026s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.077s
+user    0m0.056s
+sys     0m0.019s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.080s
+user    0m0.060s
+sys     0m0.018s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.088s
+user    0m0.060s
+sys     0m0.025s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.102s
+user    0m0.058s
+sys     0m0.043s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.063s
+user    0m0.041s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.065s
+user    0m0.019s
+sys     0m0.046s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py -n tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.098s
+user    0m0.059s
+sys     0m0.037s
+
+Determinizado
+
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.088s
+user    0m0.066s
+sys     0m0.016s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.091s
+user    0m0.065s
+sys     0m0.023s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.095s
+user    0m0.063s
+sys     0m0.019s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.075s
+user    0m0.070s
+sys     0m0.004s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.096s
+user    0m0.074s
+sys     0m0.020s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.097s
+user    0m0.063s
+sys     0m0.031s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.078s
+user    0m0.055s
+sys     0m0.022s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.076s
+user    0m0.053s
+sys     0m0.023s
+orga@Orga:~/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep$ time python3 tlengrep.py tests.regexes.r36 "/home/orga/Downloads/tp-grep-the-silence-of-the-lambdas-determinizacionAutomata/tlengrep/tests/strings/str2.txt"
+
+real    0m0.074s
+user    0m0.041s
+sys     0m0.032s
