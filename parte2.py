@@ -81,6 +81,6 @@ for ran in rangosSinInterseccion:
 
 sumaValores = 0
 for x in rangosSinInterseccion:
-    sumaValores = x.cantidadDeValoresEnRango()
+    sumaValores = sumaValores + x.cantidadDeValoresEnRango()
 
 print(sumaValores)
